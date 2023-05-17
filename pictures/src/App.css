@@ -1,0 +1,35 @@
+.App {
+  width: 1100px;
+  margin: 0 auto;
+}
+
+.search-bar {
+  border-radius: 5px;
+  color: gray;
+  margin-bottom: 30px;
+}
+
+.search-bar form {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.search-bar input {
+  border: 2px solid lightblue;
+  border-radius: 5px;
+  padding: 5px 10px;
+  text-align: center;
+  color: gray;
+  margin-top: 5px;
+}
+
+.image-list {
+  columns: 6 200px;
+  column-gap: 10px;
+}
+
+.image {
+  width: 100%;
+  margin-bottom: 10px;
+}
