@@ -12,7 +12,7 @@ function Table({ data, config, keyFn }) {
   const renderedRows = data.map(rowData => {
     const renderedCells = config.map(column => {
       return (
-        <td className='p-3' key={column.label}>
+        <td className='px-5 py-3' key={column.label}>
           {column.render(rowData)}
         </td>
       )
