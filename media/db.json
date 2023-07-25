@@ -1,0 +1,26 @@
+{
+  "users": [
+    {
+      "name": "Eunice Gleichner",
+      "id": 1
+    },
+    {
+      "name": "Bobby Fisher",
+      "id": 2
+    },
+    {
+      "name": "Marsha Osinski",
+      "id": 3
+    },
+    {
+      "name": "Hubert Ryan DVM",
+      "id": 4
+    },
+    {
+      "name": "Karl Schulist",
+      "id": 5
+    }
+  ],
+  "albums": [],
+  "photos": []
+}
