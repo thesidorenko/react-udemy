@@ -1,53 +1,44 @@
-import { useEffect, useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useEffect } from 'react'
+import { useSelector } from 'react-redux'
 import { fetchUsers, addUser } from '../store'
 import Button from './Button'
 import Skeleton from './Skeleton'
+import useThunk from '../hooks/useThunk'
+import UsersListItem from './UsersListItem'
 
 const UsersList = () => {
-  const [isLoadingUsers, setIsLoadingUsers] = useState(false)
-  const [loadingError, setLoadingError] = useState(null)
-  const dispatch = useDispatch()
+  const [isLoadingUsers, loadingUsersError, doFetchUsers] = useThunk(fetchUsers)
+  const [isCreatingUser, creatingUserError, doCreateUser] = useThunk(addUser)
   const { data } = useSelector(state => state.users)
 
   useEffect(() => {
-    setIsLoadingUsers(true)
-    dispatch(fetchUsers())
-      .unwrap()
-      // .then(() => {})
-      .catch(err => setLoadingError(err))
-      .finally(() => setIsLoadingUsers(false))
-  }, [dispatch])
+    doFetchUsers()
+  }, [doFetchUsers])
 
   const handleUserAdd = () => {
-    dispatch(addUser())
+    doCreateUser()
   }
 
+  let content
   if (isLoadingUsers) {
-    return <Skeleton times={5} className='h-10 w-full' />
+    content = <Skeleton times={5} className='h-10 w-full' />
+  } else if (loadingUsersError) {
+    content = <div>Error fetching data...</div>
+  } else {
+    content = data.map(user => {
+      return <UsersListItem key={user.id} user={user} />
+    })
   }
-
-  if (loadingError) {
-    return <div>Error fetching data...</div>
-  }
-
-  const renderedUsers = data.map(user => {
-    return (
-      <div key={user.id} className='mb-2 border rounded'>
-        <div className='flex p-2 justify-between items-center cursor-pointer'>{user.name}</div>
-      </div>
-    )
-  })
 
   return (
     <div>
-      <div className='flex flex-row justify-between m-3'>
+      <div className='flex flex-row justify-between m-3 items-center '>
         <h1 className='m-2 text-xl'>Users</h1>
-        <Button onClick={handleUserAdd} primary rounded>
+        <Button loading={isCreatingUser} onClick={handleUserAdd} primary rounded>
           + Add User
         </Button>
       </div>
-      {renderedUsers}
+      {content}
     </div>
   )
 }
