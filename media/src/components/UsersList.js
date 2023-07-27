@@ -31,9 +31,9 @@ const UsersList = () => {
   }
 
   return (
-    <div>
-      <div className='flex flex-row justify-between m-3 items-center '>
-        <h1 className='m-2 text-xl'>Users</h1>
+    <div className='w-4/5 mx-auto'>
+      <div className='flex flex-row justify-between m-5 items-center '>
+        <h1 className='text-2xl'>Users</h1>
         {creatingUserError && 'error'}
         <Button loading={isCreatingUser} onClick={handleUserAdd} primary rounded>
           + Add User

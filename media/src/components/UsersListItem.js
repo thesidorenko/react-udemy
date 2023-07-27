@@ -14,7 +14,7 @@ const UsersListItem = ({ user }) => {
 
   const header = (
     <>
-      <Button className='mr-3' loading={isLoading} onClick={handleClick}>
+      <Button className='mr-4' loading={isLoading} onClick={handleClick}>
         <GoTrash />
       </Button>
       {error && 'error'}
