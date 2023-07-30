@@ -9,14 +9,35 @@
       "id": 12
     },
     {
-      "name": "Viola Marks",
-      "id": 14
-    },
-    {
       "name": "Katherine Heathcote",
       "id": 16
+    },
+    {
+      "name": "Jodi Bruen",
+      "id": 17
     }
   ],
-  "albums": [],
+  "albums": [
+    {
+      "id": 1,
+      "title": "Ocean",
+      "userId": 6
+    },
+    {
+      "userId": 6,
+      "title": "Albania",
+      "id": 2
+    },
+    {
+      "userId": 6,
+      "title": "Czechia",
+      "id": 3
+    },
+    {
+      "userId": 6,
+      "title": "Lao People's Democratic Republic",
+      "id": 4
+    }
+  ],
   "photos": []
 }
